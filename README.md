@@ -1,70 +1,162 @@
-# Getting Started with Create React App
+# CryptoTrack - Cryptocurrency Price Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React + Redux Toolkit application that tracks cryptocurrency prices, simulating WebSocket updates and managing state via Redux.
 
-## Available Scripts
+![CryptoTrack Demo](https://your-demo-link-here.gif)
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- **Real-time Price Updates**: Simulated WebSocket connection updates cryptocurrency data every 1-2 seconds
+- **Comprehensive Market Data**: Track price, market cap, volume, supply, and price charts
+- **Advanced Filtering**: Sort by assets, gainers, losers, and search functionality
+- **Theme Toggle**: Switch between light and dark modes
+- **Currency Conversion**: View prices in different fiat currencies
+- **User Authentication**: Frontend implementation of login/signup flow
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend Framework**: React v19.1.0
+- **State Management**: Redux Toolkit v2.7.0, React-Redux v9.2.0
+- **HTTP Client**: Axios v1.9.0
+- **Charts**: Recharts v2.15.3
+- **Icons**: React Icons v5.5.0
+- **Build Tools**: React Scripts v5.0.1
 
-### `npm test`
+## 🏗️ Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+crypto-track/
+├── public/                 # Public assets
+├── src/
+│   ├── assets/             # Project assets
+│   ├── components/         # UI components
+│   │   ├── Auth/           # Authentication components
+│   │   ├── CryptoTable/    # Table components
+│   │   ├── Footer/         # Footer components
+│   │   ├── Header/         # Header components
+│   │   ├── MarketStats/    # Market statistics components
+│   │   └── Pagination/     # Pagination components
+│   ├── data/               # Initial mock data
+│   ├── redux/              # Redux state management
+│   │   ├── authSlice.js    # Authentication state
+│   │   ├── cryptoSlice.js  # Cryptocurrency data state
+│   │   └── store.js        # Redux store configuration
+│   ├── services/           # API and service utilities
+│   │   └── websocketSimulator.js # WebSocket simulation
+│   ├── utils/              # Helper functions
+│   │   └── formatters.js   # Data formatting utilities
+│   └── App.js              # Main application component
+└── package.json            # Project dependencies
+```
 
-### `npm run build`
+## 📊 State Management Flow
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application utilizes Redux Toolkit for state management:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Data Flow Process
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Initial Load**:
+   - Application loads initial cryptocurrency data from mock data
+   - Redux store is populated with this data
+   - UI components render based on initial state
 
-### `npm run eject`
+2. **WebSocket Updates**:
+   - The websocketSimulator.js service generates mock real-time data
+   - Updates are dispatched to Redux store through cryptoSlice
+   - UI components update when cryptocurrency data changes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **User Interactions**:
+   - User actions (filtering, sorting, searching) update Redux state
+   - Components receive updated data through Redux selectors
+   - UI reflects changes based on user interaction
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **Authentication Flow**:
+   - Login/Signup modals handle user authentication
+   - Authentication state is managed in authSlice
+   - UI components conditionally render based on authentication status
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 💭 Development Thought Process
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 1. Component Architecture
+The application uses a component-based architecture with separate modules for different functionalities:
+- Authentication components (Login, Signup)
+- Data display components (CryptoTable, CryptoRow)
+- Navigation components (Header, Footer)
+- Data visualization components (MiniChart, PriceChange)
 
-## Learn More
+### 2. State Management Strategy
+Redux was selected as the central state manager to handle:
+- Cryptocurrency data updates
+- User authentication state
+- Filter and sort preferences
+- Theme and display settings
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. Real-time Data Simulation
+A WebSocket simulator was implemented to provide realistic data updates without requiring external API connections during development.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 4. Future Improvements
+Key areas identified for future development:
+- Responsive design implementation
+- Test suite completion
+- Real API integration
+- Performance optimization
 
-### Code Splitting
+## 🚀 Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Prerequisites
 
-### Analyzing the Bundle Size
+- Node.js (v16.0.0 or later recommended)
+- npm (v8.0.0 or later recommended)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Installation
 
-### Making a Progressive Web App
+1. Clone the repository:
+   ```
+   git clone https://github.com/YashSigchi/Crypto-Track.git
+   cd crypto-track
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-### Advanced Configuration
+3. Start the development server:
+   ```
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. Access the application at:
+   ```
+   http://localhost:3000
+   ```
 
-### Deployment
+## 🔄 WebSocket Simulation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The application simulates WebSocket connections through a custom service:
+- Located in `src/services/websocketSimulator.js`
+- Generates realistic price movements at configurable intervals
+- Updates the Redux store with new cryptocurrency data
 
-### `npm run build` fails to minify
+## 🚧 Current Development Status
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Completed Features
+- Basic UI implementation
+- Redux state management
+- WebSocket simulation service
+- Authentication UI components
+- Cryptocurrency table with sorting
+
+### In Progress
+- Responsive design implementation 
+- Test suite development
+- Performance optimizations
+
+## 🔮 Future Enhancements
+
+- Integration with real cryptocurrency APIs
+- Portfolio tracking functionality
+- Responsive design for mobile users
+- Comprehensive test coverage
+- Dark/light theme implementation
+- User preference persistence
