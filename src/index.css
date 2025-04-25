@@ -1,13 +1,54 @@
-body {
+/* src/index.css */
+:root {
+  /* Light mode variables */
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --bg-light: #ffffff;
+  --bg-hover: rgba(0, 0, 0, 0.02);
+  --text-primary: #222531;
+  --text-secondary: #616e85;
+  --text-tertiary: #a6b0c3;
+  --border-color: #e9ecef;
+}
+
+.dark-mode {
+  /* Dark mode variables */
+  --bg-primary: #171924;
+  --bg-secondary: #1e2026;
+  --bg-light: #222531;
+  --bg-hover: rgba(255, 255, 255, 0.03);
+  --text-primary: #f8f9fa;
+  --text-secondary: #a6b0c3;
+  --text-tertiary: #616e85;
+  --border-color: #2c2f36;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+button, input, select {
+  font-family: inherit;
+}
+
+button:focus, input:focus, select:focus {
+  outline: none;
 }

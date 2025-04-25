@@ -1,0 +1,26 @@
+/* src/components/CryptoTable/PriceChange.css */
+.price-change {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.price-change.positive {
+  color: #16c784;
+  /* color: rgb(17, 94, 17); */
+}
+
+.price-change.negative {
+  /* color: #ea3943; */
+  color: #ea3943;
+}
+
+.price-change.neutral {
+  color: var(--text-secondary);
+}
+
+.change-arrow {
+  font-size: 0.9rem;
+}
