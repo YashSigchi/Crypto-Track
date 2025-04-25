@@ -2,7 +2,7 @@
 
 A React + Redux Toolkit application that tracks cryptocurrency prices, simulating WebSocket updates and managing state via Redux.
 
-![CryptoTrack Demo](https://your-demo-link-here.gif)
+![CryptoTrack Demo](https://www.youtube.com/watch?v=G6NVxIKyMEQ)
 
 ## 🚀 Features
 
